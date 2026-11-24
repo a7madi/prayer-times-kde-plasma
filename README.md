@@ -1,4 +1,6 @@
-# Prayer Times — KDE Plasma 6 widget
+# Prayer Times & Adhan for KDE Plasma 6
+
+**أوقات الصلاة والأذان لسطح مكتب KDE Plasma 6**
 
 A panel widget that shows the next prayer and a live countdown, with optional adhan alerts.
 Times are calculated locally from your coordinates — no internet connection or API needed.
@@ -21,7 +23,7 @@ Times are calculated locally from your coordinates — no internet connection or
 **From the KDE Store:** right-click the panel → *Add or Manage Widgets* → *Get New* → search "Prayer Times and Adhan",
 or get it from the [store page](https://store.kde.org/p/2382635/).
 
-**From a file:** download `prayer-times.plasmoid` from the [releases page](https://github.com/a7madi/prayer-times/releases), then
+**From a file:** download `prayer-times.plasmoid` from the [releases page](https://github.com/a7madi/prayer-times-kde-plasma/releases), then
 *Add or Manage Widgets* → *Get New* → *Install Widget From Local File…*, or:
 
 ```bash
@@ -31,15 +33,41 @@ kpackagetool6 -t Plasma/Applet -i prayer-times.plasmoid
 **From source:**
 
 ```bash
-git clone https://github.com/a7madi/prayer-times.git
-kpackagetool6 -t Plasma/Applet -i prayer-times      # first install
-kpackagetool6 -t Plasma/Applet -u prayer-times      # update
-systemctl --user restart plasma-plasmashell         # reload the panel
+git clone https://github.com/a7madi/prayer-times-kde-plasma.git
+kpackagetool6 -t Plasma/Applet -i prayer-times-kde-plasma   # first install
+kpackagetool6 -t Plasma/Applet -u prayer-times-kde-plasma   # update
+systemctl --user restart plasma-plasmashell                 # reload the panel
 ```
 
 Then open the widget settings and enter your latitude and longitude (the default is Makkah).
 
 Requires KDE Plasma 6.
+
+## طريقة التثبيت
+
+**من متجر KDE (الأسهل):** اضغط بالزر الأيمن على شريط المهام ← *Add or Manage Widgets* ← *Get New* ← ابحث عن «Prayer Times and Adhan».
+أو من [صفحة الويدجت في المتجر](https://store.kde.org/p/2382635/).
+
+**من ملف:** نزّل ملف `prayer-times.plasmoid` من [صفحة الإصدارات](https://github.com/a7madi/prayer-times-kde-plasma/releases)، وبعدها:
+*Add or Manage Widgets* ← *Get New* ← *Install Widget From Local File…* واختر الملف. أو من الطرفية:
+
+```bash
+kpackagetool6 -t Plasma/Applet -i prayer-times.plasmoid
+```
+
+**من الكود المصدري:**
+
+```bash
+git clone https://github.com/a7madi/prayer-times-kde-plasma.git
+kpackagetool6 -t Plasma/Applet -i prayer-times-kde-plasma   # أول تثبيت
+kpackagetool6 -t Plasma/Applet -u prayer-times-kde-plasma   # تحديث
+systemctl --user restart plasma-plasmashell                 # إعادة تشغيل الشريط
+```
+
+بعد إضافة الويدجت للشريط، اضغط عليه بالزر الأيمن ← *Configure* وأدخل خط العرض والطول لمدينتك (الافتراضي مكة).
+ولو كان وضع «عدم الإزعاج» مفعّلاً عندك وتبي تسمع الأذان، فعّل خيار «شغّل الصوت حتى في وضع عدم الإزعاج» من صفحة التنبيهات.
+
+يتطلب KDE Plasma 6.
 
 ## Adding a translation
 
