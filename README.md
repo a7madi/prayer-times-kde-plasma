@@ -18,7 +18,8 @@ Times are calculated locally from your coordinates — no internet connection or
 
 ## Install
 
-**From the KDE Store:** right-click the panel → *Add or Manage Widgets* → *Get New* → search "Prayer Times".
+**From the KDE Store:** right-click the panel → *Add or Manage Widgets* → *Get New* → search "Prayer Times and Adhan",
+or get it from the [store page](https://store.kde.org/p/2382635/).
 
 **From a file:** download `prayer-times.plasmoid` from the [releases page](https://github.com/a7madi/prayer-times/releases), then
 *Add or Manage Widgets* → *Get New* → *Install Widget From Local File…*, or:

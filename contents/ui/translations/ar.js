@@ -12,6 +12,7 @@ var strings = {
 
     // widget
     "Next prayer": "الصلاة القادمة",
+    "Tomorrow": "غداً",
     "in %1": "بعد %1",
     "%1 in %2": "%1 بعد %2",
     "now": "حان الآن",

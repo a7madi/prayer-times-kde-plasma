@@ -22,6 +22,10 @@ PlasmoidItem {
     })
 
     property var today: []        // [{key, date}]
+    property var tomorrow: []
+    property var yesterday: []
+    property var schedule: []     // what the popup lists: today, or tomorrow once Isha has passed
+    readonly property bool showingTomorrow: schedule === tomorrow && tomorrow.length > 0
     property var nextPrayer: null // {key, date}
     property var lastPrayer: null // most recent prayer that already started
     property date now: new Date()
@@ -66,6 +70,10 @@ PlasmoidItem {
         const d = new Date();
         computedFor = d.toDateString();
         today = calc(d);
+        const t = new Date(d); t.setDate(t.getDate() + 1);
+        tomorrow = calc(t);
+        const y = new Date(d); y.setDate(y.getDate() - 1);
+        yesterday = calc(y);
         update();
     }
 
@@ -79,14 +87,11 @@ PlasmoidItem {
             if (p.date > now) { next = p; break; }
             last = p;
         }
-        if (!next) {
-            const t = new Date(now); t.setDate(t.getDate() + 1);
-            next = calc(t).find(p => p.date);
-        }
-        if (!last) {
-            const y = new Date(now); y.setDate(y.getDate() - 1);
-            last = calc(y).filter(p => p.date && p.key !== "sunrise").pop() || null;
-        }
+        const afterIsha = !next;
+        if (afterIsha) next = tomorrow.find(p => p.date);
+        if (!last) last = yesterday.filter(p => p.date && p.key !== "sunrise").pop() || null;
+        const target = afterIsha ? tomorrow : today;
+        if (schedule !== target) schedule = target;   // only reassign on change, avoids rebuilding the list every second
         nextPrayer = next;
         lastPrayer = last;
         checkAlerts();
@@ -283,8 +288,17 @@ PlasmoidItem {
 
         Kirigami.Separator { Layout.fillWidth: true; Layout.topMargin: Kirigami.Units.smallSpacing }
 
+        PlasmaComponents3.Label {
+            visible: root.showingTomorrow
+            Layout.fillWidth: true
+            horizontalAlignment: Text.AlignHCenter
+            text: root.tr("Tomorrow")
+            font: Kirigami.Theme.smallFont
+            opacity: 0.6
+        }
+
         Repeater {
-            model: root.today
+            model: root.schedule
             delegate: Rectangle {
                 required property var modelData
                 readonly property bool isNext: root.nextPrayer && root.nextPrayer.date
