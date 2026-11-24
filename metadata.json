@@ -1,0 +1,26 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "KPlugin": {
+        "Id": "com.github.a7madi.prayertimes",
+        "Name": "Prayer Times",
+        "Name[ar]": "أوقات الصلاة",
+        "Description": "Shows prayer times and a countdown to the next prayer",
+        "Description[ar]": "يعرض أوقات الصلاة والوقت المتبقي على الصلاة القادمة",
+        "Icon": "chronometer",
+        "Authors": [
+            {
+                "Name": "a7madi"
+            }
+        ],
+        "Category": "Date and Time",
+        "License": "GPL-3.0-or-later",
+        "Version": "1.0",
+        "Website": "https://github.com/a7madi/prayer-times",
+        "BugReportUrl": "https://github.com/a7madi/prayer-times/issues",
+        "FormFactors": [
+            "desktop",
+            "panel"
+        ]
+    }
+}
