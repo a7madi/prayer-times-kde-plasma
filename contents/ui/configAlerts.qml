@@ -30,6 +30,8 @@ KCM.SimpleKCM {
     property alias cfg_adhanSeconds: secondsSpin.value
     property alias cfg_reminderMinutes: reminderSpin.value
     property alias cfg_soundInDnd: dndBox.checked
+    property alias cfg_pauseMedia: pauseMediaBox.checked
+    property alias cfg_pauseMediaMinutes: pauseMediaSpin.value
 
     function displayPath(url) {
         return url ? decodeURIComponent(url.toString().replace(/^file:\/\//, "")) : "";
@@ -189,6 +191,16 @@ KCM.SimpleKCM {
             id: dndBox
             enabled: enabledBox.checked && page.cfg_soundMode !== 0
             text: page.tr("Play sound even in Do Not Disturb mode")
+        }
+
+        RowLayout {
+            enabled: enabledBox.checked && page.cfg_soundMode !== 0
+            QQC2.CheckBox {
+                id: pauseMediaBox
+                text: page.tr("Pause playing media for")
+            }
+            QQC2.SpinBox { id: pauseMediaSpin; from: 1; to: 30; enabled: pauseMediaBox.checked }
+            QQC2.Label { text: page.tr("minutes when the adhan starts") }
         }
 
         QQC2.Label {

@@ -15,6 +15,7 @@ Times are calculated locally from your coordinates — no internet connection or
 - Per-prayer minute adjustments to match your local mosque
 - Notifications at prayer time, optional reminder before it
 - Your own adhan file (separate one for Fajr), play in full or only the first N seconds with fade-out
+- Pauses playing music/videos when the adhan starts and resumes them after 2 minutes (configurable)
 - Respects Do Not Disturb (with an option to override)
 - Arabic and English, selectable independently of the system language
 

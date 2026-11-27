@@ -78,6 +78,8 @@ var strings = {
     "Audio files": "ملفات صوت",
     "Choose…": "اختيار…",
     "Test": "تجربة",
+    "Pause playing media for": "إيقاف الوسائط المشغّلة مؤقتاً لمدة",
+    "minutes when the adhan starts": "دقائق عند بدء الأذان",
     "Clear": "إزالة",
     "Adhan length:": "مدة الأذان:",
     "Full": "كامل",

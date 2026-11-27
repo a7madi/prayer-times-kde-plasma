@@ -131,6 +131,8 @@ PlasmoidItem {
         (withSound ? adhanNotification : plainNotification)
             .createObject(root, { title: title, text: fmtTime(p.date) }).sendEvent();
         if (withSound) playFor(p.key);
+        // Pause music/videos during the adhan (not for sunrise, which is just a short chime).
+        if (withSound && !sunrise && cfg.pauseMedia) mediaPauser.pauseFor(cfg.pauseMediaMinutes);
     }
 
     function fireReminder(p, until) {
@@ -153,6 +155,7 @@ PlasmoidItem {
 
     AdhanPlayer { id: adhan; volume: root.cfg.volume / 100 }
     Loader { id: dndLoader; source: "DndWatcher.qml" }
+    MediaPauser { id: mediaPauser }
 
     Component {
         id: adhanNotification
